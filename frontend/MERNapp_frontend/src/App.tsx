@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import EntryContainer from './Components/EntryContainer';
 
 function App() {
 	
@@ -23,6 +24,8 @@ function App() {
 		<p>
 			{msg}
 		</p>
+
+		<EntryContainer></EntryContainer>
 
 
       </div>

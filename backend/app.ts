@@ -1,12 +1,10 @@
 
 //const express=require('express');
 import express from "express";
-const http=require('http');
 
-const {MongoClient,GridFSBucket, ObjectId } = require('mongodb');
+//const {MongoClient,GridFSBucket, ObjectId } = require('mongodb');
 
 const app=express();
-//const server= http.createServer(app);
 const PORT=3000;
 
 //needed to not trigger corse
