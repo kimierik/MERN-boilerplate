@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import EntryContainer from './Components/EntryContainer';
+import EntryForm from './Components/EntryForm';
 
 function App() {
 	
@@ -17,6 +18,8 @@ function App() {
 
   return (
     <div className="App">
+        <EntryForm/>
+
       <div className="card">
 
         <button onClick={() =>{ get()} }>
@@ -24,8 +27,7 @@ function App() {
 		<p>
 			{msg}
 		</p>
-
-		<EntryContainer></EntryContainer>
+		<EntryContainer/>
 
 
       </div>

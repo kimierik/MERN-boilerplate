@@ -1,6 +1,8 @@
 import { objelem } from "../Types/objElem"
 import { ObjectId } from "mongodb"
-import Entry from "./Entry"
+import Entry from "./Entry";
+import "./entryContainer/EntryContainer.css";
+
 
 
 //where all entries are
@@ -22,7 +24,7 @@ function EntryContainer(){
         length: 1545347,
         chunkSize: 1048576,
         uploadDate: '2023-02-14T11:08:57.382Z',
-        filename: ' crazy image.jpg',
+        filename: 'crazy image.jpg',
         metadata: { SenderId: 'asdf12lköudfg', Extention: 'jpg',Permission:2 }
         }
     ]
@@ -35,7 +37,7 @@ function EntryContainer(){
    //
   return (
     <div >
-        <ul>
+        <ul className="list">
             {things}
         </ul>
     </div>
