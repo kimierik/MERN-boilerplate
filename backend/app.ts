@@ -28,13 +28,17 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 
 
-//example for api endpoint
-app.get('/api',function(_req,res,_next){
-    res.send("this is a responce from the api");
+
+//this is where to put mongodb bucker.openuploadstream thing
+app.get('/api/download',function(_req,res,_next){
+
+
+    res.send("download window");
 });
 
 
 
+//send data to the database
 app.post('/api-p',function(req,res,next){
 
     const form=formidable({multiples:true});
@@ -55,8 +59,27 @@ app.post('/api-p',function(req,res,next){
 
 
 
+//get all files in the database
 app.get('/',(_req,res)=>{
-    res.send("this is an api");
+    const items=[
+        {
+        _id:  "63eb6bc9079bc00e5e5c1b5d",
+        length: 1545347,
+        chunkSize: 1048576,
+        uploadDate: '2023-02-14T11:08:57.382Z',
+        filename: 'hot pic.jpg',
+        metadata: { SenderId: 'asdf1234adfg', Extention: 'jpg',Permission:1 }
+        },
+        {
+        _id: "6fasddfg3easdf12245ac1b5d",
+        length: 1545347,
+        chunkSize: 1048576,
+        uploadDate: '2023-02-14T11:08:57.382Z',
+        filename: 'crazy image.jpg',
+        metadata: { SenderId: 'asdf12lköudfg', Extention: 'jpg',Permission:2 }
+        }
+    ]
+    res.send(items);
 });
 
 
