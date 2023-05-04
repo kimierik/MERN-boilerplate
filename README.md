@@ -10,5 +10,12 @@ run
 npm start dev
 ```
 in the root directory to start the server and frontend
+  
+## docker compose
+alternatively this app can be started with docker-compose with
+  
+```
+docker-compose up --build
+```
 
 
