@@ -51,7 +51,7 @@ app.post('/api-p',function(req,res,next){
         console.log("fil ",files) ;
         res.send("success");
     })
-    console.log( req.body);
+    //console.log( req.body);
 
 
     //res.send("done");

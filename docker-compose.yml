@@ -1,0 +1,21 @@
+services:
+  front:
+    build: ./frontend
+    ports:
+      - 8080:5173
+  back:
+    build: ./backend
+    ports:
+      - 3000:3000
+    environment:
+      DBURL: mongodb://db/MERN
+
+  db: 
+    image: mongo:6.0.5
+    ports:
+      - 27017:27017
+    volumes: 
+      - MERNdata:/data/db
+
+volumes:
+  MERNdata: 
