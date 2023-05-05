@@ -3,13 +3,10 @@ import axios from 'axios';
 
 
 
-
-
-
-
 export default function EntryForm(props:any){
 
     const [file,setfile]=useState<File>();
+
 
 
 

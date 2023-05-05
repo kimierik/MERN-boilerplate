@@ -5,10 +5,8 @@ import EntryForm from './Components/EntryForm';
 
 function App() {
 	
-	const [msg,setmsg]=useState("press the button");
 
   
-	//example on how to send getrqs to backend. this should be some variable tbh
 
 
   return (
@@ -19,9 +17,7 @@ function App() {
 
         <button onClick={() =>{  }}>
         </button>
-		<p>
-			{msg}
-		</p>
+
 		<EntryContainer/>
 
 

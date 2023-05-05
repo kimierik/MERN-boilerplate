@@ -38,15 +38,10 @@ async function main(){
 	const bucket = new GridFSBucket(db,{bucketName:'FileBucket' });
 
 
-
     //this is where to put mongodb bucker.openuploadstream thing
     app.get('/api/download',function(req,res,_next){
         
-        console.log("download");
-        console.log(req.query);
         let fileId=req.query["id"]?.toString();
-        console.log(fileId);
-        
 
         let find =new ObjectId(fileId)
 
@@ -67,6 +62,16 @@ async function main(){
     });
 
 
+    app.get('/api/delete', function(req,res,next){
+
+        console.log("delete")
+        let fileId=req.query["id"]?.toString();
+        let find =new ObjectId(fileId)
+        const cursor = bucket.find({_id:find});
+            // @ts-ignore
+        cursor.forEach(doc => bucket.delete(doc._id));
+    })
+
 
     //send data to the database
     app.post('/api-p',function(req,res,next){
@@ -79,11 +84,12 @@ async function main(){
                 next(err);
                 return;
             }
+            //console.log(files.file)
 
             // @ts-ignore
             createReadStream( files.file.filepath).
             // @ts-ignore
-                pipe(bucket.openUploadStream(file.files.originalFilename, {
+                pipe(bucket.openUploadStream(files.file.originalFilename, {
 
 				chunkSizeBytes: 1048576,
 

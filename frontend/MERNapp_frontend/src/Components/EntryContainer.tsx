@@ -28,7 +28,7 @@ function EntryContainer(){
         if (items!=undefined){
             console.log(typeof(items))
             const things= items.map((i)=>
-                <Entry item={i} key={i._id} ></Entry>// since this will be a list element we need to give it a key
+                <Entry item={i} key={i._id} update={get} ></Entry>// since this will be a list element we need to give it a key
             )
 
             return things;
