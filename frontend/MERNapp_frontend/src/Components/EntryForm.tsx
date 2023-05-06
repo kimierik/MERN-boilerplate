@@ -6,6 +6,7 @@ import axios from 'axios';
 export default function EntryForm(props:any){
 
     const [file,setfile]=useState<File>();
+    const [userName,setUserName]=useState<string>("");
 
 
 
@@ -16,6 +17,7 @@ export default function EntryForm(props:any){
 
             const fd=new FormData();
             fd.append("file", file);
+            fd.append("uname", userName);
 
             const full_config={ 
                 method:"post",
@@ -44,9 +46,10 @@ export default function EntryForm(props:any){
         <div>
 
         <p>entryform</p>
+            <input type="text" placeholder="user name" onChange={(e)=>setUserName(e.target.value)}/>
             <form action="http://localhost:3000/api" method="POST"  >
                 <input type="file" onChange={(e)=>{onfilechange(e)}}/>
-            <input type="button" value="thing" onClick={filesubmit}/>
+            <input type="button" value="submit File" onClick={filesubmit}/>
         </form>
 
         </div>

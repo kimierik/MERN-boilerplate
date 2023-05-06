@@ -62,7 +62,7 @@ async function main(){
     });
 
 
-    app.get('/api/delete', function(req,res,next){
+    app.get('/api/delete', function(req,_res,_next){
 
         console.log("delete")
         let fileId=req.query["id"]?.toString();
@@ -79,12 +79,11 @@ async function main(){
         //currently cannot handle multiple files at a time
 
         const form=formidable({multiples:true});
-        form.parse(req,(err,_fields,files)=>{
+        form.parse(req,(err,fields,files)=>{
             if(err){
                 next(err);
                 return;
             }
-            //console.log(files.file)
 
             // @ts-ignore
             createReadStream( files.file.filepath).
@@ -93,7 +92,7 @@ async function main(){
 
 				chunkSizeBytes: 1048576,
 
-				metadata: { Category: 'test',Extention : 'test'  }
+				metadata: { Category: 'test',Extention : 'test',SenderId:fields.uname  }
 			}))
 
             res.send("success");
